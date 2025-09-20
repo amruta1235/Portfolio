@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amruta Nikam - Senior Full Stack Developer Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            color: #333;
+            background: #f5f5f5;
+            font-size: 13px;
+        }
+
+        .resume-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header */
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 40px;
+        }
+
+        .name {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .title {
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #bdc3c7;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.9rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-item:hover {
+            color: #3498db;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 30px 40px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #3498db;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Summary */
+        .summary {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 3px 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .skill-list li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .bullet-list li {
+            padding: 3px 0;
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 3px;
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .job-title {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .company {
+            color: #3498db;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .duration {
+            color: #7f8c8d;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .tech-stack {
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 3px;
+            margin: 10px 0;
+            font-size: 0.85rem;
+            border-left: 3px solid #3498db;
+        }
+
+        .tech-stack strong {
+            color: #2c3e50;
+        }
+
+        .responsibilities {
+            margin: 10px 0;
+            color: #555;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .projects {
+            margin-top: 15px;
+        }
+
+        .project-item {
+            margin-bottom: 12px;
+            padding: 10px 0;
+        }
+
+        .project-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .project-url {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-url:hover {
+            text-decoration: underline;
+        }
+
+        /* Education */
+        .education-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+        }
+
+        .education-info h4 {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 3px;
+            font-size: 0.95rem;
+        }
+
+        .education-info p {
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 3px;
+            font-size: 0.9rem;
+        }
+
+        .education-details {
+            text-align: right;
+        }
+
+        .education-year {
+            color: #7f8c8d;
+            font-size: 0.85rem;
+            margin-bottom: 3px;
+        }
+
+        .education-score {
+            background: #27ae60;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .resume-container {
+                margin: 10px;
+            }
+
+            .header {
+                padding: 25px 20px;
+            }
+
+            .name {
+                font-size: 1.8rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .education-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .education-details {
+                text-align: left;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .resume-container {
+                box-shadow: none;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="name">AMRUTA MACCHINDRA NIKAM</h1>
+            <h2 class="title">SENIOR FULL STACK DEVELOPER</h2>
+            <div class="contact-info">
+                <a href="tel:+917385424368" class="contact-item">
+                    📞 +91 7385424368
+                </a>
+                <a href="mailto:amrutanikam1235@gmail.com" class="contact-item">
+                    ✉️ amrutanikam1235@gmail.com
+                </a>
+                                     <a href="https://www.linkedin.com/in/amruta-nikam-123456789/" class="contact-item" target="_blank">
+                         🔗 LinkedIn Profile
+                     </a>
+                     <a href="https://github.com/amrutanikam" class="contact-item" target="_blank">
+                         📁 GitHub Portfolio
+                     </a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Summary -->
+            <section class="section">
+                <h3 class="section-title">Professional Summary</h3>
+                <div class="summary">
+                    Experienced Senior Full Stack Developer with 2+ years of expertise in building scalable web applications using React, Next.js, Node.js, and MongoDB. 
+                    Proven track record in delivering enterprise-level solutions including B2B platforms, e-commerce systems, and fintech applications. 
+                    Strong background in API development, database design, and modern JavaScript frameworks with a focus on performance optimization and code quality.
+                </div>
+            </section>
+
+            <!-- Technical Skills -->
+            <section class="section">
+                <h3 class="section-title">Technical Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Programming Languages</h4>
+                        <ul class="skill-list">
+                            <li>JavaScript (ES6+)</li>
+                            <li>Java</li>
+                            <li>HTML5 & CSS3</li>
+                            <li>TypeScript</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Frontend Technologies</h4>
+                        <ul class="skill-list">
+                            <li>React.js & React Hooks</li>
+                            <li>Next.js Framework</li>
+                            <li>Angular.js</li>
+                            <li>Tailwind CSS</li>
+                            <li>Bootstrap</li>
+                            <li>Ionic Framework</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Backend Technologies</h4>
+                        <ul class="skill-list">
+                            <li>Node.js</li>
+                            <li>Express.js</li>
+                            <li>RESTful APIs</li>
+                            <li>API Integration</li>
+                            <li>Microservices</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Database & Storage</h4>
+                        <ul class="skill-list">
+                            <li>MongoDB</li>
+                            <li>SQL Databases</li>
+                            <li>Firebase</li>
+                            <li>Database Design</li>
+                            <li>Data Modeling</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Development Tools</h4>
+                        <ul class="skill-list">
+                            <li>Git & GitHub</li>
+                            <li>VS Code</li>
+                            <li>Postman</li>
+                            <li>FTP Client</li>
+                            <li>Chrome DevTools</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Deployment & Hosting</h4>
+                        <ul class="skill-list">
+                            <li>cPanel</li>
+                            <li>Hostinger</li>
+                            <li>Vercel</li>
+                            <li>Netlify</li>
+                            <li>Domain Management</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Professional Experience -->
+            <section class="section">
+                <h3 class="section-title">Professional Experience</h3>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Senior Full Stack Developer</div>
+                            <div class="company">FEOFO, Pune</div>
+                        </div>
+                        <div class="duration">April 2024 - Present</div>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <strong>Technologies:</strong> Next.js, Node.js, MongoDB, Express.js, React, JavaScript, HTML/CSS
+                    </div>
+                    
+                    <div class="responsibilities">
+                        Lead full-stack development initiatives, architecting scalable web applications and managing end-to-end 
+                        project delivery. Responsible for database design, API development, and application maintenance with focus 
+                        on B2B platforms and fintech solutions.
+                    </div>
+                    
+                    <div class="projects">
+                        <div class="project-item">
+                            <div class="project-title">FEOFO – Digital Marketing & IT Services Site</div>
+                            <div class="project-description">Developed a comprehensive digital marketing and IT services website showcasing company services and portfolio.</div>
+                        </div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">Green Raise Agro PVT.LTD</div>
+                            <div class="project-description">Built an end-to-end company website for a B2B business with comprehensive business management features.</div>
+                            <a href="https://www.greenraiseagro.com" class="project-url" target="_blank">🌐 https://www.greenraiseagro.com</a>
+                        </div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">Green Raise Agro E-commerce</div>
+                            <div class="project-description">Built an end-to-end e-commerce platform for retail product selling with payment integration.</div>
+                            <a href="https://www.greenraiseagro.in" class="project-url" target="_blank">🌐 https://www.greenraiseagro.in</a>
+                        </div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">Mapa Cultural</div>
+                            <div class="project-description">A collaborative platform that maps the local cultural scene, promoting events, projects, and cultural spaces.</div>
+                            <a href="https://mapacultural.saojosedobonfim.pb.gov.br" class="project-url" target="_blank">🌐 https://mapacultural.saojosedobonfim.pb.gov.br</a>
+                        </div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">Crypto P2P Platform</div>
+                            <div class="project-description">Developed a secure platform for USDT peer-to-peer transactions with advanced security features.</div>
+                        </div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">Forex Exchange Platform</div>
+                            <div class="project-description">Designed a currency exchange platform with live data feeds and real-time conversion tools.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Full Stack Developer</div>
+                            <div class="company">Esert Software Pvt.Ltd, Pune</div>
+                        </div>
+                        <div class="duration">May 2023 - April 2024</div>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <strong>Technologies:</strong> Angular, Node.js, MongoDB, HTML, CSS, Tailwind CSS, Ionic Framework
+                    </div>
+                    
+                    <div class="responsibilities">
+                        Developed and maintained web applications, implemented RESTful APIs, and collaborated with cross-functional 
+                        teams to deliver high-quality software solutions including mobile applications and interactive platforms.
+                    </div>
+                    
+                    <div class="projects">
+                        <div class="project-item">
+                            <div class="project-title">Cars Life</div>
+                            <div class="project-description">Created a ride-hailing app with real-time tracking and secure authentication.</div>
+                        </div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">Lucky Draw Platform</div>
+                            <div class="project-description">Built a user-friendly platform for interactive lucky draw events.</div>
+                        </div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">Bid Daddy</div>
+                            <div class="project-description">Led the development of an Android app using the Ionic Framework, providing a seamless bidding experience for users.</div>
+                        </div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">Hospital Sale</div>
+                            <div class="project-description">Developed a comprehensive hospital management system with patient records, billing, and inventory management.</div>
+                        </div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">Gold Mining Portal</div>
+                            <div class="project-description">Built a specialized portal for gold mining operations with tracking, reporting, and management features.</div>
+                        </div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">Lawyer in India (Ongoing)</div>
+                            <div class="project-description">Developing a legal services platform connecting clients with lawyers across India with case management features.</div>
+                        </div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">Blogging Platform</div>
+                            <div class="project-description">Created a full-featured blogging platform with user authentication, content management, and social features.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Internship Experience -->
+            <section class="section">
+                <h3 class="section-title">Internship Experience</h3>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Software Development Intern</div>
+                            <div class="company">Various Organizations</div>
+                        </div>
+                        <div class="duration">2022 - 2023</div>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <strong>Technologies:</strong> React.js, Node.js, MongoDB, HTML/CSS, JavaScript, QR Code APIs
+                    </div>
+                    
+                    <div class="responsibilities">
+                        Gained hands-on experience in full-stack development through various internship projects, 
+                        focusing on real-world applications and modern web technologies.
+                    </div>
+                    
+                    <div class="projects">
+                        <div class="project-item">
+                            <div class="project-title">Voter Polling System</div>
+                            <div class="project-description">Developed a secure online voting system with user authentication and real-time result tracking.</div>
+                        </div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">NIC Scanner QR</div>
+                            <div class="project-description">Built a QR code scanning application for National ID card verification and data extraction.</div>
+                        </div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">Facebook Clone</div>
+                            <div class="project-description">Created a social media platform clone with user profiles, posts, comments, and real-time updates.</div>
+                        </div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">WhatsApp Clone</div>
+                            <div class="project-description">Developed a messaging application with real-time chat functionality and group messaging features.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Freelancing Experience -->
+            <section class="section">
+                <h3 class="section-title">Freelancing Experience</h3>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Freelance Full Stack Developer</div>
+                            <div class="company">Independent Projects</div>
+                        </div>
+                        <div class="duration">2023 - Present</div>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <strong>Technologies:</strong> React.js, Node.js, MongoDB, Express.js, HTML/CSS, JavaScript
+                    </div>
+                    
+                    <div class="responsibilities">
+                        <ul class="bullet-list">
+                            <li>Delivered custom web solutions for diverse clients across various industries</li>
+                            <li>Managed end-to-end project development from requirements gathering to deployment</li>
+                            <li>Provided ongoing maintenance and support for client projects</li>
+                            <li>Worked independently to meet project deadlines and client expectations</li>
+                            <li>Implemented modern web technologies and best practices in freelance projects</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="projects">
+                        <div class="project-item">
+                            <div class="project-title">ConnectMyDesigner (CMD)</div>
+                            <div class="project-description">Developed a comprehensive platform connecting clients with designers, featuring project management, 
+                            portfolio showcasing, and secure payment integration for design services.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section class="section">
+                <h3 class="section-title">Education</h3>
+                
+                <div class="education-item">
+                    <div class="education-info">
+                        <h4>Bachelor of Science in Computer Science</h4>
+                        <p>BPH Education Society of Ahmednagar College, Ahmednagar</p>
+                    </div>
+                    <div class="education-details">
+                        <div class="education-year">2020 - 2023</div>
+                        <div class="education-score">CGPA: 8.9</div>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-info">
+                        <h4>Higher Secondary Certificate (HSC)</h4>
+                        <p>Jijamata College Of Science & Arts Bhenda, Pune University</p>
+                    </div>
+                    <div class="education-details">
+                        <div class="education-year">2019 - 2020</div>
+                        <div class="education-score">67.38%</div>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-info">
+                        <h4>Secondary School Certificate (SSC)</h4>
+                        <p>JMV High School Bhenda, Pune University</p>
+                    </div>
+                    <div class="education-details">
+                        <div class="education-year">2017 - 2018</div>
+                        <div class="education-score">78.60%</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

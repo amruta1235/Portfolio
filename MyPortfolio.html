@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amruta Nikam - Senior Full Stack Developer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #0a0a0a;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #0a0a0a;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-logo a {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .nav-menu li a:hover,
+        .nav-menu li a.active {
+            color: #3498db;
+            background: rgba(52, 152, 219, 0.1);
+        }
+
+        /* Header */
+        .header {
+            background: #0a0a0a;
+            color: white;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(52, 152, 219, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(46, 204, 113, 0.1) 0%, transparent 50%);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            text-align: left;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        .header h1 .highlight {
+            color: #3498db;
+        }
+
+        .header h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #b0b0b0;
+            line-height: 1.4;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #888;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-icon:hover {
+            background: #3498db;
+            transform: translateY(-3px);
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #3498db;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #3498db;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #3498db, #2ecc71);
+            z-index: -1;
+            animation: rotate 10s linear infinite;
+        }
+
+        .code-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .code-icon {
+            position: absolute;
+            color: rgba(52, 152, 219, 0.3);
+            font-size: 1.5rem;
+            font-family: monospace;
+        }
+
+        .code-icon.top-right {
+            top: 20px;
+            right: 20px;
+        }
+
+        .code-icon.bottom-left {
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .glow-circles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .glow-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(52, 152, 219, 0.1) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .glow-circle:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 0s;
+        }
+
+        .glow-circle:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 1s;
+        }
+
+        .glow-circle:nth-child(3) {
+            width: 400px;
+            height: 400px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 2s;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        .contact-bar {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 25px 40px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-item:hover {
+            background: rgba(52, 152, 219, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        .nav {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            padding: 0 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-item a {
+            display: block;
+            padding: 25px 0;
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-item a:hover,
+        .nav-item a.active {
+            color: #3498db;
+            border-bottom-color: #3498db;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 40px;
+        }
+
+        .section {
+            margin-bottom: 80px;
+            scroll-margin-top: 90px;
+        }
+
+        .section h3 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 40px;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .hero-text {
+            font-size: 1.4rem;
+            color: #b0b0b0;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            padding-top: 100px;
+
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-btn.primary {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            color: #3498db;
+            border: 2px solid #3498db;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .skill-card:hover::before {
+            left: 100%;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: #3498db;
+            box-shadow: 0 20px 40px rgba(52, 152, 219, 0.2);
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover .skill-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .skill-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .skill-description {
+            color: #b0b0b0;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: rgba(52, 152, 219, 0.2);
+            color: #3498db;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #3498db;
+            box-shadow: 0 20px 40px rgba(52, 152, 219, 0.2);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            position: relative;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: #b0b0b0;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: rgba(46, 204, 113, 0.2);
+            color: #2ecc71;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-link {
+            padding: 8px 16px;
+            border: 1px solid #3498db;
+            border-radius: 20px;
+            color: #3498db;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 35px;
+            margin-bottom: 30px;
+            transition: all 0.4s ease;
+        }
+
+        .experience-item:hover {
+            border-color: #3498db;
+            transform: translateY(-5px);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .job-title {
+            font-size: 1.4rem;
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .company-name {
+            color: #3498db;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .duration {
+            background: rgba(52, 152, 219, 0.2);
+            color: #3498db;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .experience-description {
+            color: #b0b0b0;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .education-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.4s ease;
+        }
+
+        .education-item:hover {
+            border-color: #3498db;
+            transform: translateY(-5px);
+        }
+
+        .degree {
+            font-size: 1.2rem;
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .institution {
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .education-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .score {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            margin-top: 40px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            border-color: #3498db;
+            box-shadow: 0 20px 40px rgba(52, 152, 219, 0.2);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            margin: 0 auto 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: scale(1.1);
+        }
+
+        .contact-card h4 {
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            color: #b0b0b0;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .contact-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 20px;
+            border: 1px solid #3498db;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .contact-link:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        .contact-cta {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .contact-cta h4 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .contact-cta p {
+            color: #b0b0b0;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .header h2 {
+                font-size: 1.4rem;
+            }
+
+            .profile-image {
+                width: 250px;
+                height: 250px;
+            }
+
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .projects-grid,
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Scroll animations */
+        .skill-card,
+        .project-card,
+        .experience-item,
+        .education-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .skill-card.visible,
+        .project-card.visible,
+        .experience-item.visible,
+        .education-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Amruta Nikam</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <!-- <li><a href="#services">Services</a></li> -->
+                <li><a href="#projects">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header" id="home">
+            <div class="header-content">
+                <div class="hero-text">
+                    <h1>Amruta Macchindra <span class="highlight">Nikam</span></h1>
+                    <h2>Building Functional & Visually Compelling Digital Experiences</h2>
+                    <div class="hero-description">
+                        Passionate developer and creative professional specializing in software development, 
+                        full-stack web applications, and digital solutions. Turning ideas into impactful 
+                        digital experiences with modern technologies.
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/amruta-nikam-123456789/" class="social-icon" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/amrutanikam" class="social-icon" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:amrutanikam1235@gmail.com" class="social-icon">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                    <a href="#projects" class="cta-button">
+                        View My Work ↓
+                    </a>
+                </div>
+                <div class="hero-image">
+                    <img src="/amruta1.jpg" alt="Amruta Nikam" class="profile-image">
+                    <div class="code-icons">
+                        <span class="code-icon top-right">{}</span>
+                        <span class="code-icon bottom-left">&lt;/&gt;</span>
+                    </div>
+                    <div class="glow-circles">
+                        <div class="glow-circle"></div>
+                        <div class="glow-circle"></div>
+                        <div class="glow-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+            <!-- Main Content -->
+            <main class="main-content">
+            <!-- About Section -->
+            <section id="about" class="section">
+                <h3>About Me</h3>
+                <div class="hero-section">
+                    <p class="hero-text">
+                        I'm a passionate Senior Full Stack Developer with 2+ years of experience creating scalable web applications. 
+                        I specialize in React, Next.js, Angular, and Node.js, delivering innovative solutions that drive business growth. 
+                        Currently leading development at FEOFO, Pune, where I architect and build enterprise-level applications.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="cta-btn primary">View My Work</a>
+                        <a href="#contact" class="cta-btn secondary">Get In Touch</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="section">
+                <h3>Technical Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fab fa-react"></i>
+                            </div>
+                        <div class="skill-title">Frontend Development</div>
+                        <div class="skill-description">
+                            Building responsive and interactive user interfaces with modern JavaScript frameworks.
+                                    </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">React.js</span>
+                            <span class="skill-tag">Next.js</span>
+                            <span class="skill-tag">Angular</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">Tailwind</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fab fa-node-js"></i>
+                            </div>
+                        <div class="skill-title">Backend Development</div>
+                        <div class="skill-description">
+                            Creating robust server-side applications and RESTful APIs with Node.js and Express.
+                                    </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Express.js</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">REST APIs</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                            </div>
+                        <div class="skill-title">Database & Cloud</div>
+                        <div class="skill-description">
+                            Designing and managing database solutions with MongoDB and SQL databases.
+                                    </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Firebase</span>
+                            <span class="skill-tag">Database Design</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                            </div>
+                        <div class="skill-title">Mobile Development</div>
+                        <div class="skill-description">
+                            Cross-platform mobile app development using Ionic Framework and React Native.
+                                    </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Ionic Framework</span>
+                            <span class="skill-tag">Mobile Apps</span>
+                            <span class="skill-tag">Cross-platform</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fab fa-git-alt"></i>
+                            </div>
+                        <div class="skill-title">Development Tools</div>
+                        <div class="skill-description">
+                            Version control, testing, and deployment tools for efficient development workflow.
+                                    </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git & GitHub</span>
+                            <span class="skill-tag">Postman</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">cPanel</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                            <i class="fas fa-palette"></i>
+                            </div>
+                        <div class="skill-title">UI/UX Design</div>
+                        <div class="skill-description">
+                            Creating beautiful and intuitive user experiences with modern design tools.
+                                    </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Canva</span>
+                            <span class="skill-tag">Wireframing</span>
+                            <span class="skill-tag">Prototyping</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="section">
+                <h3>Featured Projects</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-title">Green Raise Agro PVT.LTD</div>
+                            <div class="project-description">
+                                Enterprise B2B platform with comprehensive business management features, 
+                                inventory tracking, and customer relationship management.
+                    </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">Express</span>
+                    </div>
+                            <div class="project-links">
+                                <a href="https://www.greenraiseagro.com" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/amrutanikam/green-raise-agro" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                        </div>
+                        
+                        <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-title">Green Raise Agro E-commerce</div>
+                            <div class="project-description">
+                                Full-featured retail e-commerce platform with payment integration, 
+                                order management, and customer portal.
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">Payment Gateway</span>
+                                <span class="tech-tag">E-commerce</span>
+                                <span class="tech-tag">MongoDB</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://www.greenraiseagro.in" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/amrutanikam/green-raise-ecommerce" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                        </div>
+                        
+                        <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-title">Mapa Cultural</div>
+                            <div class="project-description">
+                                Collaborative cultural mapping platform for local events, projects, 
+                                and cultural spaces with interactive maps.
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">Maps API</span>
+                                <span class="tech-tag">Collaborative</span>
+                                <span class="tech-tag">Real-time</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://mapacultural.saojosedobonfim.pb.gov.br" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/amrutanikam/mapa-cultural" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-title">FEOFO – Digital Marketing & IT Services Site</div>
+                                <div class="project-description">
+                                    Corporate website highlighting services, industries, blogs, reviews, and contact flows. Focused on fast UX, clear IA, and conversion-friendly CTAs with scalable, secure implementation.
+                                </div>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Web Development</span>
+                                    <span class="tech-tag">Responsive UI</span>
+                                    <span class="tech-tag">SEO</span>
+                                    <span class="tech-tag">Performance</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://feofo.com/" class="project-link" target="_blank">
+                                        <i class="fas fa-external-link-alt"></i> Live Site
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fab fa-bitcoin"></i>
+                            </div>
+                            <div class="project-content">
+                            <div class="project-title">Crypto P2P Platform</div>
+                                <div class="project-description">
+                                    Secure peer-to-peer USDT transaction platform with advanced security 
+                                    features and real-time monitoring.
+                                </div>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Next.js</span>
+                                    <span class="tech-tag">Blockchain</span>
+                                    <span class="tech-tag">Security</span>
+                                    <span class="tech-tag">P2P</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/amrutanikam/crypto-p2p-platform" class="project-link" target="_blank">
+                                        <i class="fab fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="project-content">
+                            <div class="project-title">Forex Exchange Platform</div>
+                                <div class="project-description">
+                                    Real-time currency exchange platform with live data feeds, 
+                                    conversion tools, and market analysis.
+                                </div>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Next.js</span>
+                                    <span class="tech-tag">Real-time Data</span>
+                                    <span class="tech-tag">APIs</span>
+                                    <span class="tech-tag">Charts</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/amrutanikam/forex-exchange-platform" class="project-link" target="_blank">
+                                        <i class="fab fa-github"></i> Code
+                                    </a>
+                                </div>
+                        </div>
+                    </div>
+                    
+                                            <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-car"></i>
+                    </div>
+                            <div class="project-content">
+                                <div class="project-title">Cars Life</div>
+                                <div class="project-description">
+                                    Ride-hailing application with real-time tracking, secure authentication, 
+                                    and payment integration.
+                </div>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Angular</span>
+                                    <span class="tech-tag">Real-time</span>
+                                    <span class="tech-tag">GPS</span>
+                                    <span class="tech-tag">Payment</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/amrutanikam/cars-life" class="project-link" target="_blank">
+                                        <i class="fab fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-title">Lucky Draw</div>
+                                <div class="project-description">
+                                    User-friendly platform for interactive lucky draw events with smooth UX.
+                                </div>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Angular</span>
+                                    <span class="tech-tag">Node.js</span>
+                                    <span class="tech-tag">MongoDB</span>
+                                    <span class="tech-tag">Tailwind CSS</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i> Live Demo
+                                    </a>
+                                    <a href="#" class="project-link" target="_blank">
+                                        <i class="fab fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-title">Bid Daddy</div>
+                                <div class="project-description">
+                                    Android bidding app built with Ionic Framework, offering seamless auction experiences.
+                                </div>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Ionic</span>
+                                    <span class="tech-tag">Angular</span>
+                                    <span class="tech-tag">Node.js</span>
+                                    <span class="tech-tag">MongoDB</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i> Live Demo
+                                    </a>
+                                    <a href="#" class="project-link" target="_blank">
+                                        <i class="fab fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-title">ConnectMyDesigner (CMD)</div>
+                                <div class="project-description">
+                                    Freelancing platform connecting clients with interior designers. Implemented responsive UI, API integrations, real-time chat, secure payments, and optimized MongoDB for scalability and security.
+                                </div>
+                                <div class="project-tech">
+                                    <span class="tech-tag">React.js</span>
+                                    <span class="tech-tag">Node.js</span>
+                                    <span class="tech-tag">Express</span>
+                                    <span class="tech-tag">MongoDB</span>
+                                    <span class="tech-tag">WebSocket</span>
+                                    <span class="tech-tag">Payments</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i> Live Demo
+                                    </a>
+                                    <a href="#" class="project-link" target="_blank">
+                                        <i class="fab fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                       
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-title">Hospital Sale</div>
+                                <div class="project-description">
+                                    Platform to manage and display hospital sales data across India with dashboards and reporting.
+                                </div>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Angular</span>
+                                    <span class="tech-tag">Node.js</span>
+                                    <span class="tech-tag">MongoDB</span>
+                                    <span class="tech-tag">Charts</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                    <a href="#" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-title">Gold Mining Portal</div>
+                                <div class="project-description">
+                                    Advertisement and information portal for gold mining with real-time updates and data management.
+                                </div>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Next.js</span>
+                                    <span class="tech-tag">Real-time</span>
+                                    <span class="tech-tag">CMS</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                    <a href="#" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-blog"></i>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-title">Blogging Platform</div>
+                                <div class="project-description">
+                                    Google‑like blogging site with advanced advertisement features for engagement and monetization.
+                                </div>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Next.js</span>
+                                    <span class="tech-tag">SEO</span>
+                                    <span class="tech-tag">Ads</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                    <a href="#" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-scale-balanced"></i>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-title">Lawyer in India (Ongoing)</div>
+                                <div class="project-description">
+                                    Nationwide platform to help users find the best lawyers with advanced search and filtering.
+                                </div>
+                                <div class="project-tech">
+                                    <span class="tech-tag">React.js</span>
+                                    <span class="tech-tag">Node.js</span>
+                                    <span class="tech-tag">MongoDB</span>
+                                    <span class="tech-tag">Search</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                    <a href="#" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-title">WhatsApp Clone</div>
+                                <div class="project-description">
+                                    Real-time messaging app with chat, call, and status features.
+                                </div>
+                                <div class="project-tech">
+                                    <span class="tech-tag">React.js</span>
+                                    <span class="tech-tag">WebSocket</span>
+                                    <span class="tech-tag">Node.js</span>
+                                    <span class="tech-tag">MongoDB</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                    <a href="#" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fab fa-facebook"></i>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-title">Facebook Clone</div>
+                                <div class="project-description">
+                                    Social media platform with posts, comments, and likes.
+                                </div>
+                                <div class="project-tech">
+                                    <span class="tech-tag">React.js</span>
+                                    <span class="tech-tag">Node.js</span>
+                                    <span class="tech-tag">Express</span>
+                                    <span class="tech-tag">MongoDB</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                    <a href="#" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-qrcode"></i>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-title">NIC Scanner QR</div>
+                                <div class="project-description">
+                                    QR scanner solution for identity verification with secure validation.
+                                </div>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Angular</span>
+                                    <span class="tech-tag">Camera API</span>
+                                    <span class="tech-tag">Security</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                    <a href="#" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-vote-yea"></i>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-title">Voter Polling System</div>
+                                <div class="project-description">
+                                    Online voting system with secure authentication and real-time results.
+                                </div>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Angular</span>
+                                    <span class="tech-tag">Firebase</span>
+                                    <span class="tech-tag">Auth</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                    <a href="#" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="section">
+                <h3>Professional Experience</h3>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="job-title">Senior Full Stack Developer</div>
+                            <div class="company-name">FEOFO, Pune</div>
+                        </div>
+                        <div class="duration">April 2024 - Present</div>
+                    </div>
+                    <div class="experience-description">
+                        Leading full-stack development initiatives, architecting scalable web applications, 
+                        and managing end-to-end project delivery. Responsible for database design, API development, 
+                        and application maintenance with a focus on B2B platforms and fintech solutions.
+                    </div>
+                    <div class="project-tech">
+                        <strong>Technologies:</strong> Next.js, Node.js, MongoDB, Express.js, React, JavaScript, HTML/CSS
+                        </div>
+                        </div>
+                        
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="job-title">Full Stack Developer</div>
+                            <div class="company-name">Esert Software Pvt.Ltd, Pune</div>
+                        </div>
+                        <div class="duration">May 2023 - April 2024</div>
+                    </div>
+                    <div class="experience-description">
+                        Developed and maintained web applications, implemented RESTful APIs, and collaborated 
+                        with cross-functional teams to deliver high-quality software solutions including 
+                        mobile applications and interactive platforms.
+                    </div>
+                    <div class="project-tech">
+                        <strong>Technologies:</strong> Angular, Node.js, MongoDB, HTML, CSS, Tailwind CSS, Ionic Framework
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education" class="section">
+                <h3>Education</h3>
+                <div class="education-grid">
+                    <div class="education-item">
+                        <div class="degree">Bachelor of Science in Computer Science</div>
+                        <div class="institution">BPH Education Society of Ahmednagar College, Ahmednagar</div>
+                        <div class="education-details">
+                            <span>2020 - 2023</span>
+                            <span class="score">CGPA: 8.9</span>
+                        </div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="degree">Higher Secondary Certificate (HSC)</div>
+                        <div class="institution">Jijamata College Of Science & Arts Bhenda, Pune University</div>
+                        <div class="education-details">
+                            <span>2019 - 2020</span>
+                            <span class="score">67.38%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="degree">Secondary School Certificate (SSC)</div>
+                        <div class="institution">JMV High School Bhenda, Pune University</div>
+                        <div class="education-details">
+                            <span>2017 - 2018</span>
+                            <span class="score">78.60%</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="section">
+                <h3>Get In Touch</h3>
+                <div class="contact-section">
+                    <div class="contact-grid">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h4>Email</h4>
+                            <p>amrutanikam1235@gmail.com</p>
+                            <a href="mailto:amrutanikam1235@gmail.com" class="contact-link">Send Email</a>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h4>Phone</h4>
+                            <p>+91 7385424368</p>
+                            <a href="tel:+917385424368" class="contact-link">Call Now</a>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <h4>LinkedIn</h4>
+                            <p>Connect with me professionally</p>
+                            <a href="https://www.linkedin.com/in/amruta-nikam-123456789/" class="contact-link" target="_blank">View Profile</a>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <h4>GitHub</h4>
+                            <p>Check out my code repositories</p>
+                            <a href="https://github.com/amrutanikam" class="contact-link" target="_blank">View Portfolio</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-cta">
+                        <h4>Ready to work together?</h4>
+                        <p>I'm always open to discussing new opportunities and exciting projects.</p>
+                        <div class="cta-buttons">
+                            <a href="mailto:amrutanikam1235@gmail.com" class="cta-btn primary">Hire Me</a>
+                            <a href="Amruta_Nikam_Resume.html" class="cta-btn secondary" target="_blank">Download Resume</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Typing animation
+        const typingText = document.getElementById('typing-text');
+        const texts = [
+            'Building innovative web solutions with modern technologies',
+            'Creating scalable applications with React & Node.js',
+            'Designing beautiful user experiences with Figma',
+            'Leading full-stack development projects'
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+
+            const speed = isDeleting ? 50 : 100;
+            setTimeout(typeWriter, speed);
+        }
+
+        // Start typing animation
+        setTimeout(typeWriter, 1000);
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and items
+        document.querySelectorAll('.skill-card, .project-card, .experience-item, .education-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 85; // account for fixed navbar height
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('header#home, section');
+            const navLinks = document.querySelectorAll('.nav-menu li a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
